@@ -168,7 +168,7 @@ h4 {
 }
 
 .content-section__title {
-  color: var(--content-section__title);
+  color: var(--decorated-zone);
   font-weight: 700;
 }
 
@@ -405,31 +405,155 @@ h4 {
 
 
 
-@media(min-width:1024){
+@media(min-width:1024px) {
 
-.header{
-display: grid;
-grid-template-rows: repeat(6, auto);
+  .header {
+    grid-template-rows: 1fr 2fr 2fr;
+    padding: 10px 10px 20px 0;
 
-
-}
-
+  }
 
 
 
-.introduction{
-background-color: var(--decorated-zone);
-justify-self: end;
 
-}
+  .introduction {
+    justify-self: end;
+    width: clamp(364px, calc(-16.9px + 49.6vw), 491px);
+    grid-row: 3;
+    align-self: center;
+    margin-block-start: 25px;
+
+  }
 
 
-.title__accent{
-font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  .header__title {
+    grid-row: 2;
+    align-self: end;
+  }
 
 
 
-}
 
-  
+  .title__accent {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+
+
+  }
+
+
+
+
+  .header__theme-menu {
+    justify-self: center;
+    align-self: start;
+    padding: 5px;
+    width: clamp(70px, calc(-410px + 62.5vw), 230px);
+  }
+
+
+  .header__theme-menu-list {
+    display: flex;
+    flex-direction: row;
+
+  }
+
+
+
+
+
+
+  .decorated-zone::before {
+    top: 20px;
+    right: 6px;
+
+
+  }
+
+
+  .decorated-zone::after {
+    bottom: 0px;
+    left: 0px;
+  }
+
+
+  .decorotive-rec {
+    top: 21px;
+    right: 36px;
+  }
+
+  .decorated-zone .decorative-dot {
+    top: 29px;
+    right: 14px;
+
+
+  }
+
+  /*main*/
+
+
+  /*SECTION 1*/
+  .main {
+    column-gap: 20px;
+
+
+  }
+
+
+  .questions {
+    display: grid;
+    grid-template-columns: minmax(315px, 1fr) minmax(649px, 1fr);
+    padding-block-start: 67px;
+
+  }
+
+  /*SECTION 2*/
+
+  .answers {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(315px, 1fr));
+    column-gap: 20px;
+
+  }
+
+
+  .answers .content-section__title {
+    grid-column: 1/-1;
+    width: 315px;
+  }
+
+
+
+
+  /*SECTION 3*/
+
+  .advices {
+    display: grid;
+    grid-template-columns: minmax(315px, 1fr)minmax(649px, 1fr);
+
+  }
+
+
+
+  /*SECTION 4*/
+
+  .galery__images {
+    padding-block-end: 55px;
+
+
+
+
+
+  }
+
+  /*FOOTER*/
+
+  .footer {}
+
+  .footer__title {
+    justify-self: center;
+    align-self: center;
+
+  }
+
+
 }
