@@ -1,6 +1,6 @@
 
 
- :root.theme-light{
+ :root.theme-light {
 --bg-image:url(../images/cover-image-light.png);
 --bg-color:#FFF1F7;
 --accent-color:#FF8DCB;
@@ -11,13 +11,11 @@
  --text-introduction:#353430;
  --word-link:#353430;
   --word-link-shadow:#FF8DCB;
-  
-
 }
 
 
 @media (prefers-color-scheme: light){
-:root{
+:root {
 --bg-image:url(../images/cover-image-light.png);
 --bg-color:#FFF1F7;
 --accent-color:#FF8DCB;
@@ -29,7 +27,6 @@
  --content-section__title:#353430;
  --word-link:#353430;
   --word-link-shadow:#FF8DCB;
-  
-
 }
 
+}

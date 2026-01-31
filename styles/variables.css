@@ -1,6 +1,6 @@
 
 
-:root{
+:root {
 --bg-image:url(../images/cover-image-dark.png);
 --bg-color:#000028;
 --accent-color:#FF0070;
@@ -12,6 +12,4 @@
 --content-section__title:#FF0070;
  --word-link:#F1B2CE;
  --word-link-shadow:#FF0070;
-
-
 }
