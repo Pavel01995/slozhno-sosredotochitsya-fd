@@ -8,15 +8,13 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;                /*  Здравствуйте спасибо за  советы, много что подчерпнул для себя и
+  background-attachment: fixed; /*  Здравствуйте спасибо за  советы, много что подчерпнул для себя и
                                                    опробовал,  есть некоторые моменты которые смог  по другому
                                                    реализовать  и поискать другой подход,но не смог до конца довести.
                                                    Я про декоративные элементы, смог их все уместить в два
                                                    псевдоэлемента без лишних оберток в HTML, но растушевку для 
                                                    точки так и не смог продумать, как задать ее отдельно
                                                    в блоке  не трогая саму надпись REC.*/
-                                              
-                                                  
 }
 
 /*HEADER*/
@@ -62,8 +60,12 @@ body {
   font-size: 18px;
   color: var(--decorated-zone, #ff0070);
   padding-right: 20px;
-  background: radial-gradient(circle,var(--decorated-zone, #ff0070) 50%,  transparent)
-  41px 8px / 9px 9px no-repeat;     
+  background: radial-gradient(
+      circle,
+      var(--decorated-zone, #ff0070) 50%,
+      transparent
+    )
+    41px 8px / 9px 9px no-repeat;
 }
 
 .header__theme-menu {
@@ -208,20 +210,20 @@ h4 {
 
 .footer {
   display: grid;
-  min-height: 100vh;
+  height: 100vh;
   min-height: 668px;
   padding: 10px;
   background-color: var(--bg-color, #000028);
   place-items: center;
 }
 
-  
-
-
 @media (min-width: 768px) {
   .header {
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(100px, 1fr) minmax(100px, 1fr) minmax(100px,1fr ) minmax(100px 1fr);
+    grid-template-rows: minmax(100px, 1fr) minmax(100px, 1fr) minmax(
+        100px,
+        1fr
+      ) minmax(100px 1fr);
     min-height: 1024px;
     padding: 20px 20px 20px 0;
   }
@@ -258,7 +260,7 @@ h4 {
   }
 
   .main {
-   padding: 20px;
+    padding: 20px;
   }
 
   /*SECTION 1*/
@@ -345,7 +347,10 @@ h4 {
 @media (min-width: 1024px) {
   .header {
     min-height: 768px;
-    grid-template-rows: minmax(100px, auto) minmax(130px, auto) minmax(220px, auto);
+    grid-template-rows: minmax(100px, auto) minmax(130px, auto) minmax(
+        220px,
+        auto
+      );
     padding: 10px 5px;
   }
 
@@ -397,7 +402,10 @@ h4 {
 
   .answers {
     display: grid;
-    grid-template-columns: minmax(315px, 1fr) minmax(315px, 1fr) minmax( 315px,1fr );
+    grid-template-columns: minmax(315px, 1fr) minmax(315px, 1fr) minmax(
+        315px,
+        1fr
+      );
     column-gap: 20px;
   }
 
