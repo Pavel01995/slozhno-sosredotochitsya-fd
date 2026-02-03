@@ -27,6 +27,12 @@
   }
 }
 
-.theme-light header::after {
-  display: none;
+@media (prefers-color-scheme: light) {
+  .theme-auto .rec {
+    visibility: hidden;
+  }
+}
+
+.theme-light .rec {
+  visibility: hidden;
 }

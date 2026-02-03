@@ -3,30 +3,46 @@ body {
 }
 
 .page {
-  background-image: var(--bg-image, url(../images/cover-image-dark.png));
   background-color: var(--bg-color, #000028);
-  background-position: center;
+  background-image: var(--bg-image, url(../images/cover-image-dark.png));
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
-  background-attachment: fixed; /*  Здравствуйте спасибо за  советы, много что подчерпнул для себя и
-                                                   опробовал,  есть некоторые моменты которые смог  по другому
-                                                   реализовать  и поискать другой подход,но не смог до конца довести.
-                                                   Я про декоративные элементы, смог их все уместить в два
-                                                   псевдоэлемента без лишних оберток в HTML, но растушевку для 
-                                                   точки так и не смог продумать, как задать ее отдельно
-                                                   в блоке  не трогая саму надпись REC.*/
+  background-attachment: fixed;
 }
 
 /*HEADER*/
 
 .header {
+  position: relative;
   display: grid;
   grid-template-rows: repeat(4, auto);
   align-items: start;
   height: 100vh;
   min-height: 668px;
   padding: 10px;
-  position: relative;
+}
+.rec {
+  color: var(--accent-color);
+}
+
+.rec::before {
+  content: "REC";
+  position: absolute;
+  top: 10px;
+  right: 39px;
+  font-size: 18px;
+}
+.rec::after {
+  content: "";
+  position: absolute;
+  top: 17px;
+  right: 18px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  box-shadow: 0 0 4px 2px var(--accent-color);
+  background-color: var(--accent-color);
 }
 
 .decorated-zone {
@@ -36,62 +52,51 @@ body {
 .decorated-zone::before {
   content: "";
   position: absolute;
-  inset: 0;
   top: 10px;
   right: 10px;
-  bottom: 10px;
-  left: 10px;
-  background:
-    /* верхний правый угол */
-    linear-gradient(var(--decorated-zone) 0 0) top right / 25px 1px,
-    linear-gradient(var(--decorated-zone) 0 0) top right / 1px 25px,
-    /* нижний левый угол */ linear-gradient(var(--decorated-zone) 0 0) bottom
-      left / 25px 1px,
-    linear-gradient(var(--decorated-zone) 0 0) bottom left / 1px 25px;
-  pointer-events: none;
-  background-repeat: no-repeat;
+  width: 25px;
+  height: 25px;
+  border-top: 1px solid var(--decorated-zone);
+  border-right: 1px solid var(--decorated-zone);
 }
 
-.header::after {
-  content: " REC  ";
+.decorated-zone::after {
+  content: "";
   position: absolute;
-  top: 10px;
-  right: 17px;
-  font-size: 18px;
-  color: var(--decorated-zone, #ff0070);
-  padding-right: 20px;
-  background: radial-gradient(
-      circle,
-      var(--decorated-zone, #ff0070) 50%,
-      transparent
-    )
-    41px 8px / 9px 9px no-repeat;
+  bottom: 10px;
+  left: 10px;
+  width: 25px;
+  height: 25px;
+  border-bottom: 1px solid var(--decorated-zone);
+  border-left: 1px solid var(--decorated-zone);
 }
 
 .header__theme-menu {
-  justify-self: end;
-  font-size: 18px;
-  color: var(--decorated-zone, #ff0070);
   grid-row: 2;
+  justify-self: end;
+  color: var(--decorated-zone, #ff0070);
+  font-size: 18px;
 }
 
 .header__theme-menu-list {
   display: grid;
-  list-style: none;
   gap: 10px;
+  padding-block-start: 3px;
+  line-height: 18px;
+  list-style: none;
 }
 
 .header__theme-menu-button {
-  background: none;
   border: 1px solid transparent;
-  padding: 1.5px 13px;
-  cursor: pointer;
+  padding: 3.5px 13px;
+  outline: #ff0070;
   text-transform: lowercase;
-  outline: none;
+  background: none;
+  cursor: pointer;
 }
 
 .header__theme-menu-button:hover {
-  border-color: var(--hover-border, #ff007066);
+  outline: 1px solid var(--hover-border, #ff007066);
 }
 
 .header__theme-menu-button:focus-visible {
@@ -99,8 +104,8 @@ body {
 }
 
 .header__theme-menu-button_active {
+  outline: 1px solid var(--decorated-zone, #ff0070);
   pointer-events: none;
-  border-color: currentColor;
 }
 
 .header__title {
@@ -108,19 +113,19 @@ body {
 }
 
 .title__accent {
-  line-height: 83%;
   color: var(--title-color);
-  text-shadow: 4px 4px 0 var(--accent-color, #ff0070);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 83%;
+  text-shadow: 4px 4px 0 var(--accent-color, #ff0070);
 }
 
 .introduction {
-  color: var(--text-introduction, #000028);
-  background-color: var(--accent-color, #ff0070);
-  font-weight: 700;
-  font-size: 18px;
   grid-row: 4;
   width: clamp(355px, calc(346.4px + 2.29vw), 364px);
+  color: var(--text-introduction, #000028);
+  font-weight: 700;
+  font-size: 18px;
+  background-color: var(--accent-color, #ff0070);
 }
 
 h2,
@@ -135,14 +140,14 @@ h4 {
   display: grid;
   gap: 50px;
   padding: 40px 10px 0;
-  background-color: var(--bg-color, #000028);
   line-height: 23.4px;
+  background-color: var(--bg-color, #000028);
 }
 
 .main-section {
   font-weight: 700;
-  font-style: normal;
   font-size: 18px;
+  font-style: normal;
 }
 
 .content-section__title {
@@ -151,24 +156,28 @@ h4 {
 }
 
 .article-text__title {
-  background-color: var(--accent-color, #ff0070);
-  color: var(--text-introduction, #000028);
-  margin-block-end: 10px;
   margin-block-start: 20px;
+  margin-block-end: 10px;
+  color: var(--text-introduction, #000028);
   font-weight: 700;
+  background-color: var(--accent-color, #ff0070);
 }
 
 .article-list__subtitle {
-  background-color: var(--accent-color, #ff0070);
+  margin-block-start: 20px;
+  margin-block-end: 10px;
   color: var(--text-introduction, #ff0070);
   font-weight: 400;
-  margin-block-end: 10px;
-  margin-block-start: 20px;
+  background-color: var(--accent-color, #ff0070);
 }
 
 .article-text__content {
-  font-weight: 400;
   color: var(--article-text-color, #f1b2ce);
+  font-weight: 400;
+}
+
+.article-text__content p {
+  margin-top: 15px;
 }
 
 .word__link {
@@ -182,9 +191,7 @@ h4 {
 }
 
 .word__link:focus {
-  border: 1px solid var(--word-link, #f1b2ce);
-  border-radius: 0;
-  outline: none;
+  outline: 1px solid var(--word-link, #f1b2ce);
 }
 
 .galery__title {
@@ -200,30 +207,29 @@ h4 {
 }
 
 .galery__images img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
 /*FOOTER*/
 
 .footer {
   display: grid;
+  place-items: center;
   height: 100vh;
   min-height: 668px;
   padding: 10px;
   background-color: var(--bg-color, #000028);
-  place-items: center;
 }
 
 @media (min-width: 768px) {
   .header {
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(100px, 1fr) minmax(100px, 1fr) minmax(
-        100px,
-        1fr
-      ) minmax(100px 1fr);
+    grid-template-rows:
+      minmax(100px, 1fr) minmax(100px, 1fr) minmax(100px, 1fr)
+      minmax(100px 1fr);
     min-height: 1024px;
     padding: 20px 20px 20px 0;
   }
@@ -242,21 +248,29 @@ h4 {
   }
 
   .introduction {
+    grid-row: 4;
     justify-self: end;
     width: clamp(364px, calc(-16.9px + 49.6vw), 491px);
-    grid-row: 4;
   }
 
   .decorated-zone::before {
     top: 20px;
     right: 20px;
+  }
+
+  .decorated-zone::after {
     bottom: 20px;
     left: 20px;
   }
 
-  .header::after {
+  .rec::before {
     top: 21px;
-    right: 27px;
+    right: 48px;
+  }
+
+  .rec::after {
+    top: 28px;
+    right: 28px;
   }
 
   .main {
@@ -268,8 +282,8 @@ h4 {
   .questions {
     display: grid;
     grid-template-columns: minmax(236px, 1fr) minmax(472px, 1fr);
-    padding-block-start: 21px;
     column-gap: 20px;
+    padding-block-start: 21px;
   }
 
   .questions .content-section__title {
@@ -291,8 +305,8 @@ h4 {
   .advices {
     display: grid;
     grid-template-columns: minmax(236px, 1fr) minmax(472px, 1fr);
-    padding-block-start: 11px;
     column-gap: 20px;
+    padding-block-start: 11px;
   }
 
   .advices .content-section__title {
@@ -339,56 +353,43 @@ h4 {
   /*FOOTER*/
 
   .footer {
-    padding: 20px;
     min-height: 1024px;
+    padding: 20px;
   }
 }
 
 @media (min-width: 1024px) {
   .header {
+    grid-template-rows: minmax(40px, auto) minmax(50px, auto);
     min-height: 768px;
-    grid-template-rows: minmax(100px, auto) minmax(130px, auto) minmax(
-        220px,
-        auto
-      );
-    padding: 10px 5px;
+    padding: 10px 20px 10px 0;
   }
 
   .header__theme-menu {
+    grid-row: 1;
     justify-self: center;
     align-self: start;
-    grid-row: 1;
-    padding-block-start: 8px;
-    margin-inline-start: 19px;
+    padding-inline-start: 21px;
+    padding-block-start: 5px;
   }
 
   .header__theme-menu-list {
     display: flex;
     flex-direction: row;
-    align-self: start;
     gap: 10px;
-  }
-
-  .decorated-zone::before {
-    bottom: 19px;
-    left: 20px;
-    top: 20px;
-    right: 4px;
-  }
-
-  .decorated-zone::after {
-    top: 21px;
-    right: 12px;
+    align-self: start;
   }
 
   .header__title {
     grid-row: 2;
     align-self: end;
+    padding-block-start: 25px;
   }
 
   .introduction {
     grid-row: 3;
-    align-self: center;
+    align-self: end;
+    padding-block-end: 6px;
   }
 
   /*SECTION 1*/
